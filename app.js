@@ -36,16 +36,26 @@ class Pet {
             `5. Let ${this.name} do its business`
         ]
         let formQuestion = `${options.join("\n")}\n`;
-        readline.question(formQuestion, response => {
-            console.log(`You selected option ${response}`)
-            readline.close()
-        })
+        console.log(formQuestion);
     }
 
     ownerInput() {
-
-    }
-}
+        let userInput = require('readline').createInterface({
+            input: process.stdin,
+            output: process.stdout
+        });
+        if (
+            userInput == "1" ||
+            userInput == "2" ||
+            userInput == "3" ||
+            userInput == "4" ||
+            userInput == "5"
+        ) {
+            this._choice = parseInt(userInput);
+        } else {
+            choice = 0;
+        }
+    }}
 
 const fido = new Pet("Fido");
 fido.ownerOutput();
