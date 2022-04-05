@@ -1,0 +1,26 @@
+{
+  "name": "cn-cyberpet",
+  "version": "1.0.0",
+  "description": "Cyberpet cli project.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelmullany/CN-Cyberpet.git"
+  },
+  "keywords": [
+    "cyberpet",
+    "code-nation"
+  ],
+  "author": "Michael Mullany. Sammi Turner.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michaelmullany/CN-Cyberpet/issues"
+  },
+  "homepage": "https://github.com/michaelmullany/CN-Cyberpet#readme",
+  "dependencies": {
+    "readline": "^1.3.0"
+  }
+}
