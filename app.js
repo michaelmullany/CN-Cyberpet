@@ -1,61 +1,114 @@
-const readline = require('readline').createInterface({
-    input: process.stdin,
-    output: process.stdout
-})
+class Dog {
+    constructor(petName) {
+        this.petName = petName;
+        this.exitLoop = false;
+        this.choice = 0;
 
-// readline.question(`What's your name?`, name => {
-//     console.log(`Hi ${name}!`)
-//     readline.close()
-// })
-
-class Pet {
-    constructor(name) {
-        this._name = name;
-        this._frustration = 0;
-        this._problem = 0;
+        this.needsFeed = 5;
+        this.needsDrink = 5;
+        this.needsWalk = 5;
+        this.needsPlay = 5;
+        this.needsLoo = 5;
     }
 
-    petLoop() {
-
+    dogLoop() {
+        while (!this.exitLoop) {
+            this.dogNeeds();
+            this.ownerOutput();
+            this.ownerInput();
+            this.matchChoice();
+            this.healthCheck();
+        }
     }
 
-    checkFrustration() {
-
-    }
-
-    chooseProblem() {
-
+    dogNeeds() {
+        this.needsFeed += Math.ceil(Math.random() * 10);
+        this.needsDrink += Math.ceil(Math.random() * 10);
+        this.needsWalk += Math.ceil(Math.random() * 10);
+        this.needsPlay += Math.ceil(Math.random() * 10);
+        this.needsLoo += Math.ceil(Math.random() * 10);
     }
 
     ownerOutput() {
-        const options = [
-            `1. Feed ${this.name}`,
-            `2. Give ${this.name} a drink`,
-            `3. Take ${this.name} for a walk`,
-            `4. Play with ${this.name}`,
-            `5. Let ${this.name} do its business`
-        ]
-        let formQuestion = `${options.join("\n")}\n`;
-        console.log(formQuestion);
+        const options = `
+1. Feed ${this.petName}
+2. Give ${this.petName} a drink
+3. Take ${this.petName} for a walk
+4. Play with ${this.petName}
+5. Let ${this.petName} answer nature's call
+        `;
+        console.log(options);
     }
 
     ownerInput() {
-        let userInput = require('readline').createInterface({
-            input: process.stdin,
-            output: process.stdout
-        });
-        if (
-            userInput == "1" ||
-            userInput == "2" ||
-            userInput == "3" ||
-            userInput == "4" ||
-            userInput == "5"
-        ) {
-            this._choice = parseInt(userInput);
-        } else {
-            choice = 0;
-        }
-    }}
+        this.choice = prompt("Please enter a number from 1 to 5 : ");
+    }
 
-const fido = new Pet("Fido");
-fido.ownerOutput();
+    matchChoice() {
+        switch (this.choice) {
+            case "1":
+                if (this.needsFeed > 10) {
+                    this.needsFeed = 0;
+                    console.log(`\n${this.petName} munches on the food :)`);
+                } else {
+                    console.log(`\n${this.petName} isn't hungry.`);
+                }
+                break;
+            case "2":
+                if (this.needsDrink > 10) {
+                    this.needsDrink = 0;
+                    console.log(`\n${this.petName} slurps from the water bowl :)`);
+                } else {
+                    console.log(`\n${this.petName} isn't thirsty.`);
+                }
+                break;
+            case "3":
+                if (this.needsWalk > 10) {
+                    this.needsWalk = 0;
+                    console.log(`\n${this.petName} loves a good walk :)`);
+                } else {
+                    console.log(`\n${this.petName} doesn't want to go out.`);
+                }
+                break;
+            case "4":
+                if (this.needsPlay > 10) {
+                    this.needsPlay = 0;
+                    console.log(`\n${this.petName} jumps around for joy :)`);
+                } else {
+                    console.log(`\n${this.petName} doesn't feel like playing.`);
+                }
+                break;
+            case "5":
+                if (this.needsLoo > 10) {
+                    this.needsLoo = 0;
+                    console.log(`\n${this.petName} answers the call of nature :)`);
+                } else {
+                    console.log(`\n${this.petName} doesn't need a comfort break.`);
+                }
+                break;
+        }
+    }
+
+    healthCheck() {
+        if (this.needsLoo > 35) {
+            console.log(`\n${this.petName} has had an accident in the kitchen :(`);
+            this.needsLoo = 0;
+        }
+        if (this.needsFeed > 35) {
+            console.log(`\n${this.petName} is looking thin and has started raiding the local bins :(`);
+        }
+        if (this.needsDrink > 35) {
+            console.log(`\n${this.petName} is looking ill and has awful smelling breath :(`);
+        }
+        if (this.needsWalk > 35) {
+            console.log(`\n${this.petName} is looking depressed and sullen :(`);
+        }
+        if (this.needsPlay > 35) {
+            console.log(`\n${this.petName} is eyeing you with contempt :(`);
+        }
+    }
+}
+
+const prompt = require('prompt-sync')({ sigint: true });
+const fido = new Dog("Fido");
+fido.dogLoop();
