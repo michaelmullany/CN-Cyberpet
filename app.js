@@ -1,7 +1,7 @@
-// const readline = require('readline').createInterface({
-//     input: process.stdin,
-//     output: process.stdout
-// })
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+})
 
 // readline.question(`What's your name?`, name => {
 //     console.log(`Hi ${name}!`)
@@ -28,7 +28,18 @@ class Pet {
     }
 
     ownerOutput() {
-
+        const options = [
+            `1. Feed ${this.name}`,
+            `2. Give ${this.name} a drink`,
+            `3. Take ${this.name} for a walk`,
+            `4. Play with ${this.name}`,
+            `5. Let ${this.name} do its business`
+        ]
+        let formQuestion = `${options.join("\n")}\n`;
+        readline.question(formQuestion, response => {
+            console.log(`You selected option ${response}`)
+            readline.close()
+        })
     }
 
     ownerInput() {
@@ -37,3 +48,4 @@ class Pet {
 }
 
 const fido = new Pet("Fido");
+fido.ownerOutput();
