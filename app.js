@@ -1,7 +1,6 @@
 class Dog {
     constructor(petName) {
         this.petName = petName;
-        this.exitLoop = false;
         this.choice = 0;
 
         this.needsFeed = 5;
@@ -12,7 +11,7 @@ class Dog {
     }
 
     dogLoop() {
-        while (!this.exitLoop) {
+        while (true) {
             this.dogNeeds();
             this.ownerOutput();
             this.ownerInput();
