@@ -22,6 +22,7 @@ class Dog {
             this.ownerOutput();
             this.ownerInput();
             this.matchChoice();
+            this.printStats(); /* For Testing */
             this.healthCheck();
         }
     }
@@ -94,9 +95,19 @@ class Dog {
         }
     }
 
+    /* PRINT STATS - FOR TESTING ONLY */
+    printStats() {
+        console.log(`Feed: ${this.needsFeed} / ${this.feedThreshold}`);
+        console.log(`Drink: ${this.needsDrink} / ${this.drinkThreshold}`);
+        console.log(`Walk: ${this.needsWalk} / ${this.walkThreshold}`);
+        console.log(`Play: ${this.needsPlay} / ${this.playThreshold}`);
+        console.log(`Loo: ${this.needsLoo} / ${this.looThreshold}`);
+    }
+
     healthCheck() {
         if (this.needsLoo > this.looThreshold) {
             console.log(`\n${this.petName} has had an accident in the kitchen :(`);
+            
             this.needsLoo = 0;
         }
         if (this.needsFeed > this.feedThreshold) {
