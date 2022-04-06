@@ -8,6 +8,12 @@ class Dog {
         this.needsWalk = 5;
         this.needsPlay = 5;
         this.needsLoo = 5;
+
+        this.feedThreshold;
+        this.drinkThreshold;
+        this.walkThreshold;
+        this.playThreshold;
+        this.looThreshold;
     }
 
     dogLoop() {
@@ -89,25 +95,50 @@ class Dog {
     }
 
     healthCheck() {
-        if (this.needsLoo > 35) {
+        if (this.needsLoo > this.looThreshold) {
             console.log(`\n${this.petName} has had an accident in the kitchen :(`);
             this.needsLoo = 0;
         }
-        if (this.needsFeed > 35) {
+        if (this.needsFeed > this.feedThreshold) {
             console.log(`\n${this.petName} is looking thin and has started raiding the local bins :(`);
         }
-        if (this.needsDrink > 35) {
+        if (this.needsDrink > this.drinkThreshold) {
             console.log(`\n${this.petName} is looking ill and has awful smelling breath :(`);
         }
-        if (this.needsWalk > 35) {
+        if (this.needsWalk > this.walkThreshold) {
             console.log(`\n${this.petName} is looking depressed and sullen :(`);
         }
-        if (this.needsPlay > 35) {
+        if (this.needsPlay > this.playThreshold) {
             console.log(`\n${this.petName} is eyeing you with contempt :(`);
         }
     }
 }
 
+class JackRussell extends Dog {
+    constructor(petName) {
+        super(petName);
+        this.feedThreshold = 50;
+        this.drinkThreshold = 50;
+        this.walkThreshold = 25;
+        this.playThreshold = 25;
+        this.looThreshold = 40;
+    }
+}
+
+class GreatDane extends Dog {
+    constructor(petName) {
+        super(petName);
+        this.feedThreshold = 25;
+        this.drinkThreshold = 30;
+        this.walkThreshold = 30;
+        this.playThreshold = 50;
+        this.looThreshold = 35;
+    }
+}
+
 const prompt = require('prompt-sync')({ sigint: true });
 const fido = new Dog("Fido");
-fido.dogLoop();
+/*fido.dogLoop();*/
+
+const spot = new JackRussell("Spot");
+spot.dogLoop();
