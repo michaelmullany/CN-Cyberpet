@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,20 +8,25 @@
     <title>CyberDog</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <main>
+        <br />
         <h1>CyberDog</h1>
         <div id="selectPet">
-            <h2>Please select your dog</h2>
+            <h2>Choose your character...</h2>
+            <br />
             <div id="dogImages">
                 <ul>
-                    <li><img src="#"></li>
-                    <li><img src="#"></li>
-                    <li><img src="#"></li>
+                    <li>GREAT DANE</li>
+                    <img src="img/greatDane.png">
+                    <li>JACK RUSSELL</li>
+                    <img src="img/jackRussell.png">
+                    <li>STAFFY</li>
+                    <img src="img/staffy.png">
                 </ul>
             </div>
-            <p>Description of selected dog</p>
-            <input type="button" value="select" id="selectDogButton">
+            <input class="dogChoose" type="button" value="SELECT" id="selectDogButton">
         </div>
         <div id="inGame">
             <div id="petView">
@@ -42,7 +48,7 @@
             </div>
         </div>
     </main>
-    <script src="app.js"></script>
     <script src="interactivity.js"></script>
 </body>
+
 </html>
