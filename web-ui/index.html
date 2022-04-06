@@ -9,24 +9,40 @@
 </head>
 <body>
     <main>
-        <div id="petView">
-            <div id="petImage">
-                <img src="img/placeholderDog.png">
+        <h1>CyberDog</h1>
+        <div id="selectPet">
+            <h2>Please select your dog</h2>
+            <div id="dogImages">
+                <ul>
+                    <li><img src="#"></li>
+                    <li><img src="#"></li>
+                    <li><img src="#"></li>
+                </ul>
             </div>
-            <div id="petFeedback">
-                <p>Pet Name looks content</p>
-            </div>
+            <p>Description of selected dog</p>
+            <input type="button" value="select" id="selectDogButton">
         </div>
-        <div id="controls">
-            <ul>
-                <li>Feed Pet Name</li>
-                <li>Give Pet Name a Drink</li>
-                <li>Take Pet Name for a Walk</li>
-                <li>Play with Pet Name</li>
-                <li>Let Pet Name Answer Nature's Call</li>
-            </ul>
+        <div id="inGame">
+            <div id="petView">
+                <div id="petImage">
+                    <img src="img/placeholderDog.png">
+                </div>
+                <div id="petFeedback">
+                    <p>Pet Name looks content</p>
+                </div>
+            </div>
+            <div id="controls">
+                <ul>
+                    <li>Feed Pet Name</li>
+                    <li>Give Pet Name a Drink</li>
+                    <li>Take Pet Name for a Walk</li>
+                    <li>Play with Pet Name</li>
+                    <li>Let Pet Name Answer Nature's Call</li>
+                </ul>
+            </div>
         </div>
     </main>
     <script src="app.js"></script>
+    <script src="interactivity.js"></script>
 </body>
 </html>
