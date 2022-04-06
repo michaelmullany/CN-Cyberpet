@@ -22,7 +22,8 @@ class Dog {
             this.ownerOutput();
             this.ownerInput();
             this.matchChoice();
-            this.printStats(); /* For Testing */
+            /* TESTING ONLY */
+            //  this.printStats();
             this.healthCheck();
         }
     }
@@ -95,19 +96,23 @@ class Dog {
         }
     }
 
-    /* PRINT STATS - FOR TESTING ONLY */
+    /* 
+    PRINT STATS - FOR TESTING ONLY
+
     printStats() {
+        console.log();
         console.log(`Feed: ${this.needsFeed} / ${this.feedThreshold}`);
         console.log(`Drink: ${this.needsDrink} / ${this.drinkThreshold}`);
         console.log(`Walk: ${this.needsWalk} / ${this.walkThreshold}`);
         console.log(`Play: ${this.needsPlay} / ${this.playThreshold}`);
         console.log(`Loo: ${this.needsLoo} / ${this.looThreshold}`);
     }
+    */
 
     healthCheck() {
         if (this.needsLoo > this.looThreshold) {
             console.log(`\n${this.petName} has had an accident in the kitchen :(`);
-            
+
             this.needsLoo = 0;
         }
         if (this.needsFeed > this.feedThreshold) {
@@ -147,9 +152,50 @@ class GreatDane extends Dog {
     }
 }
 
-const prompt = require('prompt-sync')({ sigint: true });
-const fido = new Dog("Fido");
-/*fido.dogLoop();*/
+class Staffy extends Dog {
+    constructor(petName) {
+        super(petName);
+        this.feedThreshold = 35;
+        this.drinkThreshold = 40;
+        this.walkThreshold = 25;
+        this.playThreshold = 40;
+        this.looThreshold = 35;
+    }
+}
 
+const prompt = require('prompt-sync')({ sigint: true });
+
+const fido = new Dog("Fido");
 const spot = new JackRussell("Spot");
-spot.dogLoop();
+const buster = new Dog("Buster");
+
+let validChoice = false;
+
+while (!validChoice) {
+    console.log(`
+WELCOME TO YOUR CODE NATION CYBER PET.
+
+Choose your character...
+
+1. Spot the Jack Russell
+2. Fido the Great Dane
+3. Buster the Staffy
+`);
+
+    let chooseCharacter = prompt("Please enter a digit from 1 to 3 : ");
+    switch (chooseCharacter) {
+        case "1":
+            validChoice = true;
+            spot.dogLoop();
+            break;
+        case "2":
+            validChoice = true;
+            fido.dogLoop();
+            break;
+        case "3":
+            validChoice = true;
+            buster.dogLoop();
+            break;
+    }
+}
+
