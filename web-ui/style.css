@@ -1,25 +1,54 @@
 body {
+    font-size: x-large;
+    font-weight: 400;
     font-family: monospace;
     color: red;
 }
 
 main {
     margin-top: auto;
-    margin-left: auto;
+    margin-left: 20vw;
     margin-right: auto;
     width: 40%;
 }
 
 img {
-    width: 30%;
+    width: 25%;
     height: auto;
 }
 
+.action {
+    width: 60%;
+    margin-top: 0.2rem;
+    padding-top: 0.2rem;
+    padding-left: 1rem;
+    padding-bottom: 0.2rem;
+    border-radius: 0.4rem;
+    border: 1px solid red;
+    background-color: white;
+}
+
+#dogImages {
+    margin-top: 6vh;
+}
+
+#petImage {
+    margin-bottom: 6vh;
+}
+
 .dogChoose {
-    margin-left: 5vw;
+    width: 60%;
     padding-top: 0.2rem;
     border-radius: 0.4rem;
     border: 1px solid red;
     background-color: white;
     color: red;
+}
+
+.dogChoose:hover {
+    cursor: pointer;
+}
+
+.dogSelection:hover {
+    cursor: pointer;
 }
