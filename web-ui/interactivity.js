@@ -150,6 +150,8 @@ inGameScreen.style.display = "none";
 
 /* SELECT DOG SCREEN */
 
+selectionFeedback.textContent = "Please select a dog";
+
 for (let i = 0; i < selectionButtons.length; i++) {
     selectionButtons[i].addEventListener("click", () => {
         selectedDog = selectionButtons[i].id;
@@ -161,7 +163,8 @@ selectDogButton.addEventListener("click", () => {
     if (selectedDog == null) {
         selectionFeedback.textContent = "Please select a dog";
     } else {
-        selectDog()
+        selectDog();
+        updateName();
         selectPetScreen.style.display = "none";
         inGameScreen.style.display = "block";
     }
@@ -229,4 +232,13 @@ const printStats = () => {
     console.log(`Walk: ${dog.needsWalk} / ${dog.walkThreshold}`);
     console.log(`Play: ${dog.needsPlay} / ${dog.playThreshold}`);
     console.log(`Loo: ${dog.needsLoo} / ${dog.looThreshold}`);
+}
+
+const updateName = () => {
+    petFeedback.innerHTML = `<p>${dog.petName} looks content</p>`
+    document.getElementById("feedAction").textContent = `Feed ${dog.petName}`;
+    document.getElementById("drinkAction").textContent = `Give ${dog.petName} a Drink`;
+    document.getElementById("walkAction").textContent = `Take ${dog.petName} for a Walk`;
+    document.getElementById("petAction").textContent = `Play with ${dog.petName}`;
+    document.getElementById("looAction").textContent = `Let ${dog.petName} Answer Nature's Call`;
 }
