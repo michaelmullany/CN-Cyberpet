@@ -127,7 +127,10 @@ class Staffy extends Dog {
     }
 }
 
-const dog = new JackRussell("Spot");
+let selectedDog = null;
+let dog;
+
+/* Testing parameters */
 let turnCount = 0;
 let testing = false;
 
@@ -135,7 +138,7 @@ const selectPetScreen = document.getElementById("selectPet");
 const inGameScreen = document.getElementById("inGame");
 const selectDogButton = document.getElementById("selectDogButton");
 
-const testText = document.getElementById("testText");
+const selectionFeedback = document.getElementById("testText");
 const petFeedback = document.getElementById("petFeedback");
 
 const selectionButtons = document.getElementsByClassName("dogSelection");
@@ -149,13 +152,19 @@ inGameScreen.style.display = "none";
 
 for (let i = 0; i < selectionButtons.length; i++) {
     selectionButtons[i].addEventListener("click", () => {
-        testText.textContent = selectionButtons[i].id;
+        selectedDog = selectionButtons[i].id;
+        displaySelectionFeedback();
     });
 };
 
 selectDogButton.addEventListener("click", () => {
-    selectPetScreen.style.display = "none";
-    inGameScreen.style.display = "block";
+    if (selectedDog == null) {
+        selectionFeedback.textContent = "Please select a dog";
+    } else {
+        selectDog()
+        selectPetScreen.style.display = "none";
+        inGameScreen.style.display = "block";
+    }
 });
 
 /* IN GAME SCREEN */
@@ -165,6 +174,37 @@ for (let i = 0; i < actionButtons.length; i++) {
         processTurn(actionButtons[i].id);
     });
 };
+
+const displaySelectionFeedback = () => {
+    if (selectedDog == "jackRussell") {
+        selectionFeedback.textContent =  "Do you want to select a Jack Russell?"
+    }
+    else if (selectedDog == "greatDane") {
+        selectionFeedback.textContent = "Do you want to select a Great Dane?"
+    }
+    else if (selectedDog == "staffy") {
+        selectionFeedback.textContent = "Do you want to select a Staffy?"
+    }
+    else {
+        selectionFeedback.textContent = "Please select a dog"
+    }
+}
+
+const selectDog = () => {
+    if (selectedDog == "jackRussell") {
+        dog = new JackRussell("Spot");
+    }
+    else if (selectedDog == "greatDane") {
+        dog = new GreatDane("Fido");
+    }
+    else if (selectedDog == "staffy") {
+        dog = new Staffy("Buster");
+    }
+    else {
+        dog = new Dog("Pochi");
+    }
+    console.log(dog);
+}
 
 const processTurn = (action) => {
     if (testing) {
