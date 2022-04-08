@@ -138,7 +138,7 @@ const selectPetScreen = document.getElementById("selectPet");
 const inGameScreen = document.getElementById("inGame");
 const selectDogButton = document.getElementById("selectDogButton");
 
-const selectionFeedback = document.getElementById("testText");
+const selectionFeedback = document.getElementById("selectionFeedback");
 const petFeedback = document.getElementById("petFeedback");
 
 const selectionButtons = document.getElementsByClassName("dogSelection");
@@ -155,6 +155,9 @@ selectionFeedback.textContent = "Please select a dog";
 for (let i = 0; i < selectionButtons.length; i++) {
     selectionButtons[i].addEventListener("click", () => {
         selectedDog = selectionButtons[i].id;
+        clearDogSelectionHighlight();
+        selectionButtons[i].classList.add("selected");
+        setSelectButtonValid(true);
         displaySelectionFeedback();
     });
 };
@@ -179,6 +182,7 @@ for (let i = 0; i < actionButtons.length; i++) {
 };
 
 const displaySelectionFeedback = () => {
+    selectionFeedback.classList.remove("hidden");
     if (selectedDog == "jackRussell") {
         selectionFeedback.textContent =  "Do you want to select a Jack Russell?"
     }
@@ -241,4 +245,21 @@ const updateName = () => {
     document.getElementById("walkAction").textContent = `Take ${dog.petName} for a Walk`;
     document.getElementById("petAction").textContent = `Play with ${dog.petName}`;
     document.getElementById("looAction").textContent = `Let ${dog.petName} Answer Nature's Call`;
+}
+
+function setSelectButtonValid(valid) {
+    if (valid) {
+        selectDogButton.classList.remove("dogChooseInvalid");
+        selectDogButton.classList.add("dogChooseValid");
+    } else {
+        selectDogButton.classList.remove("dogChooseValid");
+        selectDogButton.classList.add("dogChooseInvalid");
+    }
+}
+
+const clearDogSelectionHighlight = () => {
+    for(let i = 0; i < selectionButtons.length; i++) {
+        selectionButtons[i].classList.remove("selected");
+
+    }
 }

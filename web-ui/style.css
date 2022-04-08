@@ -2,7 +2,7 @@ body {
     font-size: x-large;
     font-weight: 400;
     font-family: monospace;
-    color: red;
+    color: #a62639;
 }
 
 main {
@@ -10,6 +10,7 @@ main {
     margin-left: 20vw;
     margin-right: auto;
     width: 40%;
+    text-align: center;
 }
 
 img {
@@ -17,15 +18,33 @@ img {
     height: auto;
 }
 
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
 .action {
+    margin-left: auto;
+    margin-right: auto;
     width: 60%;
     margin-top: 0.2rem;
     padding-top: 0.2rem;
     padding-left: 1rem;
     padding-bottom: 0.2rem;
     border-radius: 0.4rem;
-    border: 1px solid red;
+    border: 1px solid #a62639;
     background-color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+#selectPet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #dogImages {
@@ -40,15 +59,39 @@ img {
     width: 60%;
     padding-top: 0.2rem;
     border-radius: 0.4rem;
-    border: 1px solid red;
-    background-color: white;
-    color: red;
 }
 
-.dogChoose:hover {
+.dogChooseInvalid {
+    border: 1px solid #a29c9b;
+    background-color: #a29c9b;
+    color: #56494e;
+}
+
+.dogChooseValid {
+    border: 1px solid #a62639;
+    background-color: white;
+    color: #a62639;
+}
+
+.dogChooseValid:hover {
     cursor: pointer;
+    background-color: #db324d;
+    color: white;
 }
 
 .dogSelection:hover {
     cursor: pointer;
+}
+
+.dogSelection:hover li {
+    color: #db324d;
+}
+
+.selected li {
+    background-color: #db324d;
+    color: white;
+}
+
+.selected:hover li {
+    color: white;
 }
