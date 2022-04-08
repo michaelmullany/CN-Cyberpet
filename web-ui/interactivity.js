@@ -168,6 +168,7 @@ selectDogButton.addEventListener("click", () => {
     } else {
         selectDog();
         updateName();
+        updateImage();
         selectPetScreen.style.display = "none";
         inGameScreen.style.display = "block";
     }
@@ -245,6 +246,20 @@ const updateName = () => {
     document.getElementById("walkAction").textContent = `Take ${dog.petName} for a Walk`;
     document.getElementById("petAction").textContent = `Play with ${dog.petName}`;
     document.getElementById("looAction").textContent = `Let ${dog.petName} Answer Nature's Call`;
+}
+
+function updateImage() {
+    const image = document.getElementById("selectedDogImg");
+
+    if (selectedDog =="jackRussell") {
+        image.src = "img/jackRussell.png";
+    }
+    if (selectedDog == "greatDane") {
+        image.src = "img/greatDane.png";
+    }
+    if (selectedDog == "staffy") {
+        image.src = "img/staffy.png";
+    }
 }
 
 function setSelectButtonValid(valid) {

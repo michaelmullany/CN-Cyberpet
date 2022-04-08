@@ -73,7 +73,7 @@ ul {
     color: #a62639;
 }
 
-.dogChooseValid:hover {
+.dogChooseValid:hover, .action:hover {
     cursor: pointer;
     background-color: #db324d;
     color: white;
