@@ -95,3 +95,16 @@ ul {
 .selected:hover li {
     color: white;
 }
+
+.positive {
+    color: #249D62;
+
+}
+
+.neutral {
+    color: #cba328;
+}
+
+.negative {
+    color: #a62639;
+}

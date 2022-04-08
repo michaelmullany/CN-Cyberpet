@@ -32,41 +32,41 @@ class Dog {
             case "feedAction":
                 if (this.needsFeed > 10) {
                     this.needsFeed = 0;
-                    petFeedback.textContent = `\n${this.petName} munches on the food :)`;
+                    petFeedback.innerHTML = `<p class="positive">\n${this.petName} munches on the food :)</p>`;
                 } else {
-                    petFeedback.textContent = `\n${this.petName} isn't hungry.`;
+                    petFeedback.innerHTML = `<p class="neutral">\n${this.petName} isn't hungry.</p>`;
                 }
                 break;
             case "drinkAction":
                 if (this.needsDrink > 10) {
                     this.needsDrink = 0;
-                    petFeedback.textContent = `\n${this.petName} slurps from the water bowl :)`;
+                    petFeedback.innerHTML = `<p class="positive">\n${this.petName} slurps from the water bowl :)</p>`;
                 } else {
-                    petFeedback.textContent = `\n${this.petName} isn't thirsty.`;
+                    petFeedback.innerHTML = `<p class="neutral">\n${this.petName} isn't thirsty.</p>`;
                 }
                 break;
             case "walkAction":
                 if (this.needsWalk > 10) {
                     this.needsWalk = 0;
-                    petFeedback.textContent = `\n${this.petName} loves a good walk :)`;
+                    petFeedback.innerHTML = `<p class="positive">\n${this.petName} loves a good walk :)</p>`;
                 } else {
-                    petFeedback.textContent = `\n${this.petName} doesn't want to go out.`;
+                    petFeedback.innerHTML = `<p class="neutral">\n${this.petName} doesn't want to go out.</p>`;
                 }
                 break;
             case "petAction":
                 if (this.needsPlay > 10) {
                     this.needsPlay = 0;
-                    petFeedback.textContent = `\n${this.petName} jumps around for joy :)`;
+                    petFeedback.innerHTML = `<p class="positive">\n${this.petName} jumps around for joy :)</p>`;
                 } else {
-                    petFeedback.textContent = `\n${this.petName} doesn't feel like playing.`;
+                    petFeedback.innerHTML = `<p class="neutral">\n${this.petName} doesn't feel like playing.</p>`;
                 }
                 break;
             case "looAction":
                 if (this.needsLoo > 10) {
                     this.needsLoo = 0;
-                    petFeedback.textContent = `\n${this.petName} answers the call of nature :)`;
+                    petFeedback.innerHTML = `<p class="positive">\n${this.petName} answers the call of nature :)</p>`;
                 } else {
-                    petFeedback.textContent = `\n${this.petName} doesn't need a comfort break.`;
+                    petFeedback.innerHTML = `<p class="neutral">\n${this.petName} doesn't need a comfort break.</p>`;
                 }
                 break;
             default:
@@ -76,20 +76,20 @@ class Dog {
 
     healthCheck() {
         if (this.needsLoo > this.looThreshold) {
-            petFeedback.textContent = `\n${this.petName} has had an accident in the kitchen :(`;
+            petFeedback.innerHTML = `<p class="negative">\n${this.petName} has had an accident in the kitchen :(</p>`;
             this.needsLoo = 0;
         }
         if (this.needsFeed > this.feedThreshold) {
-            petFeedback.textContent = `\n${this.petName} is looking thin and has started raiding the local bins :(`;
+            petFeedback.innerHTML = `<p class="negative">\n${this.petName} is looking thin and has started raiding the local bins :(</p>`;
         }
         if (this.needsDrink > this.drinkThreshold) {
-            petFeedback.textContent = `\n${this.petName} is looking ill and has awful smelling breath :(`;
+            petFeedback.innerHTML = `<p class="negative">\n${this.petName} is looking ill and has awful smelling breath :(</p>`;
         }
         if (this.needsWalk > this.walkThreshold) {
-            petFeedback.textContent = `\n${this.petName} is looking depressed and sullen :(`;
+            petFeedback.innerHTML = `<p class="negative">\n${this.petName} is looking depressed and sullen :(</p>`;
         }
         if (this.needsPlay > this.playThreshold) {
-            petFeedback.textContent = `\n${this.petName} is eyeing you with contempt :(`;
+            petFeedback.innerHTML = `<p class="negative">\n${this.petName} is eyeing you with contempt :(</p>`;
         }
     }
 }
@@ -211,7 +211,6 @@ const selectDog = () => {
     else {
         dog = new Dog("Pochi");
     }
-    console.log(dog);
 }
 
 const processTurn = (action) => {
