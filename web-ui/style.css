@@ -1,15 +1,17 @@
 body {
-    font-size: x-large;
-    font-weight: 400;
+    font-size: 1rem;
+    font-weight: 300;
     font-family: monospace;
     color: #a62639;
 }
 
+button {
+    margin-bottom: 1vh;
+}
 main {
-    margin-top: auto;
-    margin-left: 20vw;
-    margin-right: auto;
     width: 40%;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
 }
 
@@ -25,13 +27,11 @@ ul {
 }
 
 .action {
+    padding: 1rem;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 1vh;
     width: 60%;
-    margin-top: 0.2rem;
-    padding-top: 0.2rem;
-    padding-left: 1rem;
-    padding-bottom: 0.2rem;
     border-radius: 0.4rem;
     border: 1px solid #a62639;
     background-color: white;
@@ -48,16 +48,15 @@ ul {
 }
 
 #dogImages {
-    margin-top: 6vh;
+    margin-top: 2vh;
 }
 
 #petImage {
-    margin-bottom: 6vh;
+    margin-bottom: 2vh;
 }
 
 .dogChoose {
-    width: 60%;
-    padding-top: 0.2rem;
+    width: 40%;
     border-radius: 0.4rem;
 }
 
