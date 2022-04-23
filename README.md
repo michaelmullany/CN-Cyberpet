@@ -12,7 +12,13 @@ A pair programming project on the Code Nation Master Course (week 4).
 
 ## Run CLI version
 
-Enter the command
+First, install node modules
+
+```
+npm i
+```
+
+Then enter the command
 
 ```
 node app.js
